@@ -8,10 +8,10 @@ function Header() {
         <div className="brand">Red Earth Kitchen</div>
 
         <nav className="nav" aria-label="Primary navigation">
-          <a href="#">MENU</a>
-          <a href="#">OUR STORY</a>
-          <a href="#">RESERVATIONS</a>
-          <a href="#">CONTACT</a>
+          <a href="#menu">MENU</a>
+          <a href="#our-story">OUR STORY</a>
+          <a href="#reservations">RESERVATIONS</a>
+          <a href="#contact">CONTACT</a>
         </nav>
 
         <div className="cta">
