@@ -1,15 +1,42 @@
-name: red earth 
+name: Red Earth CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-jobs:
-  say.hello:
-    runs.on: ubuntu-latest
-    steps:
-      - name: checkout code
-        uses: actions/checkout@v3
+  pull_request:
+    branches:
+      - main
 
-      - name: Print Hello
-        run: echo "Hello, Github actions!"
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linting
+        run: npm run lint --if-present
+
+      - name: Build React application
+        run: npm run build
+
+      - name: Upload production build
+        uses: actions/upload-artifact@v4
+        with:
+          name: red-earth-production-build
+          path: dist
+          retention-days: 7
+
+      - name: Print success message
+        run: echo "Red Earth React application was built successfully!"
