@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -13,16 +16,23 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: red-earth
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Show project files
-        run: ls -la
+      - name: Find React project
+        shell: bash
+        run: |
+          PACKAGE_FILE=$(find . -name "package.json" -not -path "*/node_modules/*" | head -n 1)
+
+          if [ -z "$PACKAGE_FILE" ]; then
+            echo "Error: package.json was not found."
+            exit 1
+          fi
+
+          APP_DIR=$(dirname "$PACKAGE_FILE")
+          echo "APP_DIR=$APP_DIR" >> "$GITHUB_ENV"
+          echo "React project found in: $APP_DIR"
 
       - name: Set up Node.js
         uses: actions/setup-node@v6
@@ -32,9 +42,15 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: ${{ env.APP_DIR }}
 
       - name: Run linting
         run: npm run lint --if-present
+        working-directory: ${{ env.APP_DIR }}
 
       - name: Build React application
         run: npm run build
+        working-directory: ${{ env.APP_DIR }}
+
+      - name: Build successful
+        run: echo "Red Earth application built successfully!"
