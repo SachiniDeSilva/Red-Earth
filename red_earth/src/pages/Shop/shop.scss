@@ -20,7 +20,7 @@ $success-color: #6B9E7D;
   &__title {
     font-size: 56px;
     font-weight: 300;
-    color: $text-dark;
+    color: white;
     letter-spacing: 2px;
     margin: 0 0 10px 0;
     font-family: 'Georgia', serif;
@@ -28,7 +28,7 @@ $success-color: #6B9E7D;
 
   &__subtitle {
     font-size: 16px;
-    color: $text-light;
+    color: white;
     letter-spacing: 1px;
     text-transform: uppercase;
     margin: 0;
@@ -99,7 +99,7 @@ $success-color: #6B9E7D;
   // Grid
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin-bottom: 60px;
   }
@@ -426,7 +426,7 @@ $success-color: #6B9E7D;
     }
 
     &__grid {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 

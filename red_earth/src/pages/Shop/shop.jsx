@@ -1,5 +1,13 @@
 import { useState } from 'react';
 import './shop.scss';
+import grillDorade from '../../assets/dorado-grilled-dorado-with-bell-pepper-eggplant-tomato-lemonnd-pomegranate-sauce-plate.jpg';
+import hamPlatter from '../../assets/close-up-meat-platter-with-ham-salami-beef-slices-sausage.jpg';
+import seasonalSalad from '../../assets/front-view-delicious-vegan-salad-with-fresh-ingredients-plate.jpg';
+import bakedHam from '../../assets/baked-ham-red-caviar-served-old-wooden-table.jpg';
+import cupcakes from '../../assets/brown-white-cupcakes-white-ceramic-plate.jpg';
+import lemonTart from '../../assets/yellow-lemon-meringue-tart-sweet-indulgence-generated-by-ai.jpg';
+import wine from '../../assets/side-view-woman-hand-pouring-red-wine-into-glass-cheese-olive-walnut-grape-love-card-white-surface-black-wall.jpg';
+import beer from '../../assets/pouring-fresh-beer.jpg';
 
 const Shop = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -13,17 +21,17 @@ const Shop = () => {
       name: 'Grilled Dorade',
       category: 'mains',
       price: 42,
-      description: 'Fresh grilled dorade with seasonal vegetables',
-      image: 'https://via.placeholder.com/300x250/8B7355/FFFFFF?text=Grilled+Dorade',
+      description: 'Fresh grilled dorade with seasonal vegetables and pomegranate sauce',
+      image: grillDorade,
       tag: 'SIGNATURE'
     },
     {
       id: 2,
-      name: 'Slow Roasted Lamb Shoulder',
+      name: 'Slow Roasted Ham',
       category: 'mains',
       price: 50,
-      description: 'Tender lamb shoulder with aromatic herbs and spices',
-      image: 'https://via.placeholder.com/300x250/A0826D/FFFFFF?text=Lamb+Shoulder',
+      description: 'Tender baked ham with red caviar and gourmet garnish',
+      image: bakedHam,
       tag: "CHEF'S PICK"
     },
     {
@@ -31,53 +39,53 @@ const Shop = () => {
       name: 'Seasonal Salad',
       category: 'starters',
       price: 16,
-      description: 'Fresh seasonal vegetables with house dressing',
-      image: 'https://via.placeholder.com/300x250/90EE90/FFFFFF?text=Seasonal+Salad',
+      description: 'Fresh seasonal vegetables with house dressing and herbs',
+      image: seasonalSalad,
       tag: ''
     },
     {
       id: 4,
-      name: 'Cured Ham Platter',
+      name: 'Cured Meat Platter',
       category: 'starters',
       price: 22,
-      description: 'Selection of premium cured meats and cheeses',
-      image: 'https://via.placeholder.com/300x250/D4A574/FFFFFF?text=Ham+Platter',
+      description: 'Selection of premium cured meats, salami, beef, and sausage',
+      image: hamPlatter,
       tag: ''
     },
     {
       id: 5,
-      name: 'Chocolate Mousse',
+      name: 'Gourmet Cupcakes',
       category: 'desserts',
       price: 12,
-      description: 'Rich dark chocolate mousse with berries',
-      image: 'https://via.placeholder.com/300x250/8B4513/FFFFFF?text=Chocolate+Mousse',
+      description: 'Artisan cupcakes with chocolate and vanilla frosting',
+      image: cupcakes,
       tag: ''
     },
     {
       id: 6,
-      name: 'Lemon Tart',
+      name: 'Lemon Meringue Tart',
       category: 'desserts',
       price: 14,
-      description: 'Classic lemon tart with vanilla ice cream',
-      image: 'https://via.placeholder.com/300x250/FFD700/FFFFFF?text=Lemon+Tart',
+      description: 'Classic lemon tart with sweet meringue and vanilla ice cream',
+      image: lemonTart,
       tag: ''
     },
     {
       id: 7,
-      name: 'Signature Wine',
+      name: 'Premium Red Wine',
       category: 'drinks',
       price: 18,
-      description: 'Selection of fine wines from local vineyards',
-      image: 'https://via.placeholder.com/300x250/722F37/FFFFFF?text=Signature+Wine',
+      description: 'Selection of fine wines from local vineyards with cheese pairing',
+      image: wine,
       tag: ''
     },
     {
       id: 8,
-      name: 'Craft Beer',
+      name: 'Craft Beer Selection',
       category: 'drinks',
       price: 8,
-      description: 'Premium craft beers on tap',
-      image: 'https://via.placeholder.com/300x250/D4A500/FFFFFF?text=Craft+Beer',
+      description: 'Premium craft beers freshly poured on tap',
+      image: beer,
       tag: ''
     }
   ];
