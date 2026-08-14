@@ -1,0 +1,478 @@
+@import '../../index.scss';
+
+$primary-color: #8B6F47;
+$secondary-color: #D4A574;
+$accent-color: #F5E6D3;
+$text-dark: #2C2C2C;
+$text-light: #666;
+$border-color: #E8D4C0;
+$success-color: #6B9E7D;
+
+.shop {
+  padding: 60px 20px;
+  min-height: 100vh;
+
+  &__header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  &__title {
+    font-size: 56px;
+    font-weight: 300;
+    color: $text-dark;
+    letter-spacing: 2px;
+    margin: 0 0 10px 0;
+    font-family: 'Georgia', serif;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    color: $text-light;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  // Search Bar
+  &__search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  &__search-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px 20px;
+    border: 2px solid $border-color;
+    border-radius: 4px;
+    font-size: 16px;
+    color: $text-dark;
+    transition: all 0.3s ease;
+
+    &::placeholder {
+      color: $text-light;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+    }
+  }
+
+  // Category Buttons
+  &__categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+
+  &__category-btn {
+    padding: 10px 25px;
+    border: 2px solid $border-color;
+    background: white;
+    color: $text-dark;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+
+    &:hover {
+      border-color: $primary-color;
+      color: $primary-color;
+    }
+
+    &.active {
+      background: $primary-color;
+      color: white;
+      border-color: $primary-color;
+    }
+  }
+
+  // Grid
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+  }
+
+  // Cards
+  &__card {
+    background: white;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    &:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+  }
+
+  &__card-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: $accent-color;
+  }
+
+  &__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    .shop__card:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__card-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: white;
+    color: $primary-color;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 2px;
+  }
+
+  &__card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: $text-dark;
+    margin: 0 0 8px 0;
+    font-family: 'Georgia', serif;
+  }
+
+  &__card-description {
+    font-size: 13px;
+    color: $text-light;
+    margin: 0 0 15px 0;
+    flex: 1;
+    line-height: 1.5;
+  }
+
+  &__card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  &__card-price {
+    font-size: 20px;
+    font-weight: 700;
+    color: $primary-color;
+  }
+
+  &__card-actions {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__card-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    &--details {
+      background: transparent;
+      color: $primary-color;
+      border: 1px solid $primary-color;
+
+      &:hover {
+        background: $primary-color;
+        color: white;
+      }
+    }
+
+    &--add {
+      background: $success-color;
+      color: white;
+      border: none;
+
+      &:hover {
+        background: darken($success-color, 10%);
+      }
+    }
+  }
+
+  // Empty State
+  &__empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: $text-light;
+    font-size: 18px;
+  }
+
+  // Modal
+  &__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+  }
+
+  &__modal-content {
+    background: white;
+    border-radius: 4px;
+    max-width: 600px;
+    width: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    animation: slideUp 0.3s ease;
+    position: relative;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+  }
+
+  &__modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: $accent-color;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__modal-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: $accent-color;
+    min-height: 300px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__modal-info {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2 {
+      font-size: 28px;
+      font-weight: 600;
+      color: $text-dark;
+      margin: 0 0 10px 0;
+      font-family: 'Georgia', serif;
+    }
+  }
+
+  &__modal-tag {
+    display: inline-block;
+    background: $primary-color;
+    color: white;
+    padding: 6px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 2px;
+    margin-bottom: 15px;
+    width: fit-content;
+  }
+
+  &__modal-description {
+    font-size: 14px;
+    color: $text-light;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+  }
+
+  &__modal-price {
+    font-size: 32px;
+    font-weight: 700;
+    color: $primary-color;
+    margin: 0 0 25px 0;
+  }
+
+  &__modal-btn {
+    background: $success-color;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: darken($success-color, 10%);
+      transform: translateY(-2px);
+    }
+  }
+
+  // Cart Badge
+  &__cart-badge {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: $primary-color;
+    color: white;
+    padding: 16px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba($primary-color, 0.3);
+    animation: slideIn 0.3s ease;
+    z-index: 500;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .shop {
+    padding: 40px 15px;
+
+    &__title {
+      font-size: 40px;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    &__categories {
+      gap: 10px;
+    }
+
+    &__category-btn {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+
+    &__modal-content {
+      grid-template-columns: 1fr;
+    }
+
+    &__modal-info {
+      padding: 30px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .shop {
+    padding: 30px 10px;
+
+    &__title {
+      font-size: 32px;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    &__card-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    &__card-btn {
+      width: 100%;
+
+      &--details {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
