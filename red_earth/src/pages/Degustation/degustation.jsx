@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './degustation.scss';
-import restaurantImg from '../../assets/pexels-aabouden-yassir-2163228451-38795631.jpg';
+import restaurantImg from '../../assets/side-view-mushroom-frying-with-gas-stove-fire-human-hand-pan.jpg';
 
 export default function Degustation() {
   const [isModalOpen, setIsModalOpen] = useState(false);
