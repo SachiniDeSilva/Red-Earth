@@ -7,6 +7,7 @@ import OurStory from './pages/Our_story/ourStory'
 import Shop from './pages/Shop/shop'
 import Degustation from './pages/Degustation/degustation'
 import Contact from './pages/ContactUs/contact'
+import FooterBanner from './pages/FooterBanner/footerBanner'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -22,6 +23,7 @@ function App() {
       
       <Degustation />
       <Contact />
+      <FooterBanner />
     </>
   )
 }
