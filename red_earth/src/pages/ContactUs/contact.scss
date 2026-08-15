@@ -35,8 +35,8 @@ $button-brown: #8B5A3C;
   }
 
   &__kicker {
-    font-size: 12px;
-    letter-spacing: 2px;
+    font-size: 14px;
+    letter-spacing: 0.18em;
     color: $brown-accent;
     text-transform: uppercase;
     margin-bottom: 20px;
@@ -44,12 +44,12 @@ $button-brown: #8B5A3C;
   }
 
   &__title {
-    font-size: 52px;
+    font-size: clamp(2.8rem, 4vw, 4.8rem);
     font-family: 'Georgia', serif;
     font-weight: 400;
     color: $text-dark;
     margin: 0 0 25px 0;
-    line-height: 1.2;
+    line-height: 1.1;
 
     em {
       font-style: italic;
@@ -58,7 +58,7 @@ $button-brown: #8B5A3C;
   }
 
   &__description {
-    font-size: 15px;
+    font-size: 16px;
     line-height: 1.8;
     color: $text-light;
     margin: 0 0 30px 0;
@@ -80,7 +80,7 @@ $button-brown: #8B5A3C;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
-    font-size: 14px;
+    font-size: 15px;
     color: $text-dark;
 
     &:not(:last-child) {
@@ -111,8 +111,8 @@ $button-brown: #8B5A3C;
     gap: 14px;
     text-align: left;
     color: $text-dark;
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.6;
     white-space: pre-line;
   }
 
@@ -162,8 +162,8 @@ $button-brown: #8B5A3C;
   }
 
   &__form-label {
-    font-size: 11px;
-    letter-spacing: 1px;
+    font-size: 12px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     font-weight: 700;
     color: $text-light;
@@ -174,7 +174,7 @@ $button-brown: #8B5A3C;
     background: $input-bg;
     border: 1px solid $border-color;
     border-radius: 2px;
-    font-size: 14px;
+    font-size: 15px;
     color: $text-dark;
     font-family: inherit;
     transition: all 0.3s ease;
@@ -218,9 +218,9 @@ $button-brown: #8B5A3C;
     color: white;
     border: none;
     border-radius: 2px;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;

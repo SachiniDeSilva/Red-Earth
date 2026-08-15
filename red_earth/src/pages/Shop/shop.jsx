@@ -10,7 +10,7 @@ import wine from '../../assets/side-view-woman-hand-pouring-red-wine-into-glass-
 import beer from '../../assets/pouring-fresh-beer.jpg';
 
 const Shop = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('mains');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedItem, setSelectedItem] = useState(null);
   const [cart, setCart] = useState([]);
@@ -91,7 +91,6 @@ const Shop = () => {
   ];
 
   const categories = [
-    { id: 'all', label: 'ALL' },
     { id: 'starters', label: 'STARTERS' },
     { id: 'mains', label: 'MAINS' },
     { id: 'desserts', label: 'DESSERTS' },
@@ -99,7 +98,7 @@ const Shop = () => {
   ];
 
   const filteredItems = menuItems.filter(item => {
-    const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
+    const matchesCategory = item.category === selectedCategory;
     const matchesSearch = item.name.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
   });
@@ -116,12 +115,26 @@ const Shop = () => {
 
   return (
     <section className="shop">
-      <div className="shop__header">
-        <h1 className="shop__title">Our Menu</h1>
-        <p className="shop__subtitle">Discover our seasonal highlights</p>
+      <div className="shop__header-row">
+        <div className="shop__header-copy">
+          <div className="shop__kicker">§ 02 — THE MENU</div>
+          <h1 className="shop__title">Seasonal highlights</h1>
+        </div>
+
+        <div className="shop__categories" aria-label="Menu categories">
+          {categories.map(category => (
+            <button
+              key={category.id}
+              className={`shop__category-btn ${selectedCategory === category.id ? 'active' : ''}`}
+              onClick={() => setSelectedCategory(category.id)}
+            >
+              {category.label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="shop__search">
+      <div className="shop__search" style={{ display: 'none' }}>
         <input
           type="text"
           placeholder="Search menu items..."
@@ -129,18 +142,6 @@ const Shop = () => {
           onChange={(e) => setSearchTerm(e.target.value)}
           className="shop__search-input"
         />
-      </div>
-
-      <div className="shop__categories">
-        {categories.map(category => (
-          <button
-            key={category.id}
-            className={`shop__category-btn ${selectedCategory === category.id ? 'active' : ''}`}
-            onClick={() => setSelectedCategory(category.id)}
-          >
-            {category.label}
-          </button>
-        ))}
       </div>
 
       <div className="shop__grid">
