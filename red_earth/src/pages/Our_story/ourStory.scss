@@ -9,13 +9,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 28px;
-    align-items: start;
+    align-items: center;
   }
 
   .story-media {
     position: relative;
     overflow: hidden;
     border-radius: 2px;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     img { width: 100%; height: 100%; object-fit: cover; display: block; }
 

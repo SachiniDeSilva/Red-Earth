@@ -1,6 +1,41 @@
 import React, { useState } from 'react';
 import './contact.scss';
 
+const locationIcon = (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 21s6-5.686 6-11a6 6 0 1 0-12 0c0 5.314 6 11 6 11Z" />
+    <circle cx="12" cy="10" r="2.5" />
+  </svg>
+);
+
+const phoneIcon = (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.86 19.86 0 0 1 3.09 4.18 2 2 0 0 1 5.1 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.63a2 2 0 0 1-.45 2.11L9 9.91a16 16 0 0 0 6.09 6.09l1.45-1.27a2 2 0 0 1 2.11-.45c.85.29 1.73.5 2.63.62A2 2 0 0 1 22 16.92Z" />
+  </svg>
+);
+
+const clockIcon = (
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="8.5" />
+    <path d="M12 7.5v5l3.5 2" />
+  </svg>
+);
+
+const contactDetails = [
+  {
+    label: '42 Flinders Lane\nMelbourne VIC 3000',
+    icon: locationIcon,
+  },
+  {
+    label: '(03) 9654 2211',
+    icon: phoneIcon,
+  },
+  {
+    label: 'Wed-Sun · Lunch & Dinner',
+    icon: clockIcon,
+  },
+];
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -22,7 +57,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the data to a server
     console.log('Reservation submitted:', formData);
     setSubmitted(true);
     setTimeout(() => {
@@ -37,7 +71,7 @@ export default function Contact() {
         <div className="contact__info-section">
           <div className="contact__content">
             <div className="contact__kicker">§ 04 — RESERVATIONS</div>
-            
+
             <h1 className="contact__title">
               Join us for <em>an evening.</em>
             </h1>
@@ -67,9 +101,13 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="contact__address">
-              <span className="contact__address-icon">📍</span>
-              <span>42 Flinders Lane, Melbourne VIC 3000</span>
+            <div className="contact__details-list" aria-label="Contact details">
+              {contactDetails.map((item) => (
+                <div className="contact__detail-item" key={item.label}>
+                  <span className="contact__detail-icon">{item.icon}</span>
+                  <span className="contact__detail-text">{item.label}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

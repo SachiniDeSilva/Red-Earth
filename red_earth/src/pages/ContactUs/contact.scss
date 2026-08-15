@@ -97,19 +97,49 @@ $button-brown: #8B5A3C;
     font-family: 'Courier New', monospace;
   }
 
-  &__address {
+  &__details-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 18px;
+  }
+
+  &__detail-item {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    font-size: 14px;
+    justify-content: flex-start;
+    gap: 14px;
+    text-align: left;
     color: $text-dark;
-    margin-top: 20px;
+    font-size: 15px;
+    line-height: 1.5;
+    white-space: pre-line;
+  }
 
-    .contact__address-icon {
-      flex-shrink: 0;
-      font-size: 18px;
-      margin-top: 2px;
+  &__detail-icon {
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $brown-accent;
+    flex-shrink: 0;
+    margin-top: 2px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
+  }
+
+  &__detail-text {
+    display: block;
+    text-align: left;
   }
 
   // Form Section
