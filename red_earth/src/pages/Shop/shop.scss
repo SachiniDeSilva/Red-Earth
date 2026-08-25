@@ -345,7 +345,7 @@ $success-color: #6B9E7D;
     font-weight: 700;
     letter-spacing: 1px;
     border-radius: 2px;
-    margin-bottom: 15px;
+    margin-bottom:  15px;
     width: fit-content;
   }
 
@@ -434,24 +434,45 @@ $success-color: #6B9E7D;
 // Responsive Design
 @media (max-width: 768px) {
   .shop {
-    padding: 40px 15px;
+    padding: 40px 16px;
+
+    &__header-row {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
 
     &__title {
-      font-size: 40px;
+      font-size: clamp(34px, 10vw, 44px);
     }
 
     &__grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      padding: 0;
     }
 
     &__categories {
-      gap: 10px;
+      width: 100%;
+      justify-content: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
     }
 
     &__category-btn {
-      padding: 8px 16px;
-      font-size: 12px;
+      flex: 0 0 auto;
+      padding: 14px 18px;
+      font-size: 10px;
+    }
+
+    &__card-image-container {
+      height: min(72vw, 360px);
+      min-height: 240px;
+    }
+
+    &__card-content {
+      padding-top: 16px;
     }
 
     &__modal-content {
@@ -466,7 +487,7 @@ $success-color: #6B9E7D;
 
 @media (max-width: 480px) {
   .shop {
-    padding: 30px 10px;
+    padding: 32px 16px 48px;
 
     &__title {
       font-size: 32px;
@@ -474,7 +495,26 @@ $success-color: #6B9E7D;
 
     &__grid {
       grid-template-columns: 1fr;
-      gap: 15px;
+      gap: 28px;
+    }
+
+    &__card-image-container {
+      min-height: 220px;
+    }
+
+    &__card-tag {
+      top: 12px;
+      left: 12px;
+      padding: 7px 10px;
+      font-size: 10px;
+    }
+
+    &__modal {
+      padding: 12px;
+    }
+
+    &__modal-info {
+      padding: 24px 20px 28px;
     }
 
     &__card-actions {
