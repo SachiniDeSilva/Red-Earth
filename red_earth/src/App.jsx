@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 import './App.scss'
 import Header from './components/Header'
 import Banner from './pages/Banner/banner'
@@ -9,10 +7,9 @@ import Degustation from './pages/Degustation/degustation'
 import Contact from './pages/ContactUs/contact'
 import FooterBanner from './pages/FooterBanner/footerBanner'
 import Footer from './pages/Footer/footer'
+import ChatAssistant from './components/ChatAssistant'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <Header />
@@ -26,6 +23,7 @@ function App() {
       <Contact />
       <FooterBanner />
       <Footer />
+      <ChatAssistant />
     </>
   )
 }

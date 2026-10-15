@@ -1,16 +1,24 @@
-# React + Vite
+# Red Earth Kitchen
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Restaurant website built with React and Vite, with a floating AI chat assistant powered by the Google Gemini API.
 
-Currently, two official plugins are available:
+## Run locally
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Install dependencies with `npm install`.
+2. Copy `.env.example` to `.env` and set `GEMINI_API_KEY` to your Google AI Studio API key.
+3. Run `npm run dev` and open the local URL printed by Vite.
 
-## React Compiler
+The development command starts both Vite and the chat API. Vite forwards `/api` requests to the local API server on port `3001`. The Gemini key is read by the server only and is never sent to the browser.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Optional server settings:
 
-## Expanding the Oxlint configuration
+- `API_PORT` changes the API server port (default `3001`).
+- `API_HOST` changes the API bind address (default `127.0.0.1`).
+- `GEMINI_MODEL` changes the Gemini model (default `gemini-2.5-flash`).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+For production, deploy the frontend and Node API together or configure the hosting platform to route `/api` requests to the Node server. Set `GEMINI_API_KEY` in the server's environment; do not add the real key to source control.
+
+## Build and lint
+
+- `npm run build`
+- `npm run lint`
